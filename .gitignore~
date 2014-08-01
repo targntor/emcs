@@ -1,0 +1,10 @@
+.emacs.desktop
+.emacs.desktop.lock
+.ido.last
+ac-comphist.dat
+bookmarks
+eshell
+init.el_
+init.el~
+request
+server

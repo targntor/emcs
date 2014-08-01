@@ -1,0 +1,48 @@
+(ns paypass.core)
+
+(defn foo
+  "I don't do a whole lot."
+  [x]
+  (println x "Hello, World!"))
+
+
+
+(foo "asdf")
+
+(require '[clj-http.client :as client])
+
+(require '[clojure.data.json :as json])
+
+
+
+
+
+(System/getProperty "http.proxyHost")
+(System/getProperty "http.proxyPort")
+(System/getProperty "http.proxyUser")
+(System/getProperty "http.proxyPassword")
+
+
+(System/setProperty "http.proxyHost" "localhost")
+(System/setProperty "http.proxyPort" "8888")
+
+
+
+
+
+(client/post "http://www.paypass.ru/outlets/get_by_city"
+{:form-params {:city "Москва" :page 2}}
+)
+
+(def res (client/post "http://www.paypass.ru/outlets/get_by_city"
+{:form-params {:city "Москва" :page 2}}
+))
+
+(json/read-str (res :body) )
+
+
+((json/read-str (res :body) ) "outlets_html")
+
+
+
+
